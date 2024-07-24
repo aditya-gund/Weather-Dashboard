@@ -1,12 +1,12 @@
 import React from 'react';
-import Card from './Card'; // Import the Card component
-import './WeatherInfo.css'; // Ensure this line correctly references WeatherInfo.css
+import Card from './Card';
+import './WeatherInfo.css';
 
 const WeatherInfo = ({ weather }) => {
-  if (!weather) return <div>No weather data available</div>;
+  if (!weather) return null;
 
   return (
-    <div className="weather-cards">
+    <div className="weather-info">
       <Card day="Yesterday" weather={weather.yesterday} />
       <Card day="Today" weather={weather.today} />
       <Card day="Tomorrow" weather={weather.tomorrow} />

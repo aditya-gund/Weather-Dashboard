@@ -12,26 +12,33 @@ const App = () => {
   const handleSearch = async (city) => {
     setCity(city);
 
-    const apiKey = 'YOUR_ACCUWEATHER_API_KEY';
+    const apiKey = 'pjKOAqIytv3qMxV3MvmmoC8I7o0HwEM6';
     const locationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`;
 
     try {
-      const response = await axios.get(locationUrl);
-      const locationKey = response.data[0].Key;
+      // Fetch the location key for the city
+      const locationResponse = await axios.get(locationUrl);
+      if (locationResponse.data.length === 0) {
+        console.error('No location found for the city');
+        return;
+      }
 
-      const weatherUrl = `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apiKey}`;
+      const locationKey = locationResponse.data[0].Key;
+      console.log('Location Key:', locationKey);
 
+      // Fetch the weather data for the next 5 days
+      const weatherUrl = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}`;
       const weatherResponse = await axios.get(weatherUrl);
-      const weatherData = weatherResponse.data[0];
+      const weatherData = weatherResponse.data.DailyForecasts;
 
+      // Extract weather data for yesterday, today, and tomorrow
       const extractedWeather = {
-        wind: weatherData.Wind.Speed.Metric.Value,
-        temp: weatherData.Temperature.Metric.Value,
-        highLow: `${weatherData.TemperatureSummary.Past24HourRange.Maximum.Metric.Value} - ${weatherData.TemperatureSummary.Past24HourRange.Minimum.Metric.Value}`,
-        humidity: weatherData.RelativeHumidity,
-        rainFall: weatherData.PrecipitationSummary.Precipitation.Metric.Value,
+        yesterday: weatherData[0], // First day's data
+        today: weatherData[1], // Second day's data
+        tomorrow: weatherData[2] // Third day's data
       };
 
+      console.log('Extracted Weather:', extractedWeather);
       setWeather(extractedWeather);
     } catch (error) {
       console.error('Error fetching weather data:', error);
