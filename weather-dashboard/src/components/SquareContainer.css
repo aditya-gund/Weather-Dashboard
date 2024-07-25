@@ -1,0 +1,11 @@
+/* SquareContainer.css */
+.square-container {
+    width: 300px; /* Set the width of the square */
+    height: 300px; /* Set the height of the square to match the width */
+    border: 1px solid #ddd; /* Optional border for visibility */
+    overflow: hidden; /* Hide any overflow content */
+    display: flex; /* Center content within the square */
+    align-items: center;
+    justify-content: center;
+}
+  

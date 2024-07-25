@@ -4,7 +4,27 @@ import SearchBar from './components/SearchBar';
 import WeatherInfo from './components/WeatherInfo';
 import Map from './components/Map';
 import 'leaflet/dist/leaflet.css';
+import SquareContainer from './components/SquareContainer';
 
+const containerStyle = {
+  display: 'flex',
+    height: '100vh', // Full viewport height
+    margin: 0, // Remove default margin
+    padding: 0, // Remove default padding
+    border: 'none', 
+};
+
+const weatherInfoStyle = {
+  flex: '0 0 30%', // Adjust width as needed, here it takes 30% of the container width
+  overflowY: 'auto', // Allows scrolling if content overflows
+  padding: 0, // Optional padding
+};
+
+const mapStyle = {
+  flex: '1', // Takes up the remaining space in the container
+  overflow: 'hidden', // Ensures no overflow
+  padding: 0,  // Optional padding
+};
 const App = () => {
   const [city, setCity] = useState('Amravati');
   const [weather, setWeather] = useState(null);
@@ -57,12 +77,12 @@ const App = () => {
     <div className="App">
       <h1>Weather Dashboard</h1>
       <SearchBar onSearch={handleSearch} />
-      <div className="content">
-        <div className="weather-info">
+      <div style={containerStyle} className="content">
+        <div style={weatherInfoStyle} className="weather-info">
           <WeatherInfo weather={weather} />
-        </div>
-        <div className="map">
-          <Map center={mapCenter} zoom={zoom} /> {/* Pass center and zoom as props */}
+        </div>  
+        <div style={mapStyle} className="map">
+          <Map center={mapCenter} zoom={zoom} />
         </div>
       </div>
     </div>
