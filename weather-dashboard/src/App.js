@@ -6,13 +6,13 @@ import Map from './components/Map';
 import './App.css';
 
 const App = () => {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState('Amravati');
   const [weather, setWeather] = useState(null);
 
   const handleSearch = async (city) => {
     setCity(city);
 
-    const apiKey = 'pjKOAqIytv3qMxV3MvmmoC8I7o0HwEM6';
+    const apiKey = '5BdKp6TUdkvhZrCAu06NDANmP384uRQS';
     const locationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`;
 
     try {
