@@ -1,4 +1,4 @@
-/* App.css */
+/* src/App.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -18,17 +18,18 @@ input, button {
 .content {
   display: flex;
   align-items: flex-start; /* Align items to the top */
-  margin-top: 20px;
+  height: 100vh; /* Full viewport height */
 }
 
 .weather-info {
   width: 300px; /* Fixed width for weather info */
   margin-right: 20px; /* Space between weather info and map */
+  overflow-y: auto; /* Scroll if content overflows */
 }
 
 .map {
   flex: 1; /* Take up the remaining space */
-  height: 450px; /* Set height for the map */
+  height: 100%; /* Full height of the container */
 }
 
 iframe {

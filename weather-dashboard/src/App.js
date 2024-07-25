@@ -14,7 +14,7 @@ const App = () => {
   const handleSearch = async (city) => {
     setCity(city);
 
-    const apiKey = '5BdKp6TUdkvhZrCAu06NDANmP384uRQS';
+    const apiKey = 'pjKOAqIytv3qMxV3MvmmoC8I7o0HwEM6';
     const locationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`;
 
     try {

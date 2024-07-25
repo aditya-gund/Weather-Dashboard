@@ -1,7 +1,8 @@
-/* Map.css */
+/* Add this CSS to your Map.css or appropriate stylesheet */
 .map-container {
-    text-align: center;
-    height: 50%; /* Full height of its parent */
-    width: 50%;  /* Full width of its parent */
+    height: 100%; /* Full viewport height */
+    width: 100%;    /* Adjust as needed */
+    border: 2px solid black; /* Optional, for debugging */
+    z-index: -1;
   }
   
