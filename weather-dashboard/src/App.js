@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import WeatherInfo from './components/WeatherInfo';
-import Map from './components/Map';
-import './App.css';
+import Map from './components/Map'
+import 'leaflet/dist/leaflet.css';
 
 const App = () => {
   const [city, setCity] = useState('Amravati');
@@ -54,7 +54,7 @@ const App = () => {
           <WeatherInfo weather={weather} />
         </div>
         <div className="map">
-          <Map city={city} />
+          <Map/>
         </div>
       </div>
     </div>
