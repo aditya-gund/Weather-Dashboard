@@ -1,6 +1,13 @@
-.weather-cards {
+/* src/components/WeatherInfo.css */
+.weather-info {
   display: flex;
   flex-direction: column;
+  gap: 5px; /* Reduced gap between cards */
+  width: 300px; /* Fixed width to fit the left side */
+  max-height: 100vh; /* Ensure it fits within the viewport height */
+  overflow-y: auto; /* Scroll if content overflows, optional */
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .card {
@@ -8,11 +15,6 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 5px; /* Reduced space between cards */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.weather-info {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }

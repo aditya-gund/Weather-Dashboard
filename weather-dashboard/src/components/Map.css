@@ -1,7 +1,7 @@
-
+/* Map.css */
 .map-container {
-    height: 500px;
-    width: 50%;
-    border: 2px solid black;
-    border-radius: 20px;
+    text-align: center;
+    height: 50%; /* Full height of its parent */
+    width: 50%;  /* Full width of its parent */
   }
+  

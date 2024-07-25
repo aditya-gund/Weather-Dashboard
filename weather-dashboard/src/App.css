@@ -1,3 +1,4 @@
+/* App.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -16,22 +17,22 @@ input, button {
 
 .content {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-start; /* Align items to the top */
   margin-top: 20px;
 }
 
 .weather-info {
-  flex: 1;
-  margin-right: 20px;
+  width: 300px; /* Fixed width for weather info */
+  margin-right: 20px; /* Space between weather info and map */
 }
 
 .map {
-  flex: 1;
+  flex: 1; /* Take up the remaining space */
+  height: 450px; /* Set height for the map */
 }
 
 iframe {
   width: 100%;
-  height: 450px;
+  height: 100%; /* Full height of the container */
   border: 0;
 }

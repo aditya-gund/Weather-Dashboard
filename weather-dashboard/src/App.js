@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import WeatherInfo from './components/WeatherInfo';
-import Map from './components/Map'
+import Map from './components/Map';
 import 'leaflet/dist/leaflet.css';
 
 const App = () => {
   const [city, setCity] = useState('Amravati');
   const [weather, setWeather] = useState(null);
+  const [mapCenter, setMapCenter] = useState([20.5937, 78.9629]); // Default coordinates
+  const [zoom, setZoom] = useState(13); // Default zoom level
 
   const handleSearch = async (city) => {
     setCity(city);
@@ -23,10 +25,16 @@ const App = () => {
         return;
       }
 
-      const locationKey = locationResponse.data[0].Key;
-      console.log('Location Key:', locationKey);
+      const locationData = locationResponse.data[0];
+      const latitude = locationData.GeoPosition.Latitude;
+      const longitude = locationData.GeoPosition.Longitude;
+
+      // Set map center to the location's coordinates and zoom in
+      setMapCenter([latitude, longitude]);
+      setZoom(13); // Adjust zoom level if needed
 
       // Fetch the weather data for the next 5 days
+      const locationKey = locationData.Key;
       const weatherUrl = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}`;
       const weatherResponse = await axios.get(weatherUrl);
       const weatherData = weatherResponse.data.DailyForecasts;
@@ -54,7 +62,7 @@ const App = () => {
           <WeatherInfo weather={weather} />
         </div>
         <div className="map">
-          <Map/>
+          <Map center={mapCenter} zoom={zoom} /> {/* Pass center and zoom as props */}
         </div>
       </div>
     </div>

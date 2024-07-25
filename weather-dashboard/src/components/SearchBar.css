@@ -1,17 +1,32 @@
 /* src/components/SearchBar.css */
 .search-bar {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  .search-bar input {
-    flex: 1;
-    padding: 5px;
-    font-size: 16px;
-  }
-  
-  .search-bar button {
-    padding: 5px 10px;
-    font-size: 16px;
-  }
-  
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-select {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  margin-right: 10px; /* Add space between select and button */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
