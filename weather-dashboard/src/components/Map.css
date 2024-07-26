@@ -3,6 +3,6 @@
     height: 100%; /* Full viewport height */
     width: 100%;    /* Adjust as needed */
     border: 2px solid black; /* Optional, for debugging */
-    z-index: -1;
+    /* z-index: -1; */
   }
   

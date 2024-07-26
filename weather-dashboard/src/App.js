@@ -4,7 +4,8 @@ import SearchBar from './components/SearchBar';
 import WeatherInfo from './components/WeatherInfo';
 import Map from './components/Map';
 import 'leaflet/dist/leaflet.css';
-import SquareContainer from './components/SquareContainer';
+import SourceMessage from './components/SourceMessage'
+// import SquareContainer from './components/SquareContainer';
 
 const containerStyle = {
   display: 'flex',
@@ -79,7 +80,8 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className='frameApp'>
+      <div className="App">
       <center><h1>Weather Dashboard</h1></center>
       <SearchBar onSearch={handleSearch} defaultValue={city} />
       <div style={containerStyle} className="content">
@@ -90,6 +92,7 @@ const App = () => {
           <Map center={mapCenter} zoom={zoom} />
         </div>
       </div>
+    </div>
     </div>
   );
 };
