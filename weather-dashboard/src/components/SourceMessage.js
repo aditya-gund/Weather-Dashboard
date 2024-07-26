@@ -5,7 +5,7 @@ const SourceMessage = () => {
   return (
     <div className="source-message">
       Weather data sourced from <a href="https://www.accuweather.com/" target="_blank" rel="noopener noreferrer">AccuWeather</a>.
-    </div>
+    and <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">openweather</a></div>
   );
 }
 

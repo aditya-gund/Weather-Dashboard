@@ -9,12 +9,12 @@ const WeatherInfo = ({ weather }) => {
 
   return (
     <div className="weather-info">
-      <SourceMessage/>
       <Card day="Yesterday" weather={weather.yesterday} />
       <Card day="Today" weather={weather.today} />
       <Card day="Tomorrow" weather={weather.tomorrow} />
       <NotInFreeServiceCard title="Last 15 Days forecasts" />
       <NotInFreeServiceCard title="Future 15 Days forecasts" />
+      <SourceMessage/>
     </div>
   );
 };
