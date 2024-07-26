@@ -21,10 +21,10 @@ const Card = ({ day, weather }) => {
   return (
     <div className="card">
       <h3>{day}</h3>
-      <p>Temperature: {maxTempCelsius} °C (High) - {minTempCelsius} °C (Low)</p>
-      <p>High-Low: {maxTempCelsius} °C - {minTempCelsius} °C</p>
-      <p>Humidity: {humidity}</p>
-      <p>Rainfall: {rainfall}</p>
+      <p className="temperature">Temperature: {maxTempCelsius} °C (High) - {minTempCelsius} °C (Low)</p>
+      <p className="temperature">High-Low: {maxTempCelsius} °C - {minTempCelsius} °C</p>
+      <p className="humidity">Humidity: {humidity}</p>
+      <p className="rainfall">Rainfall: {rainfall}</p>
     </div>
   );
 };

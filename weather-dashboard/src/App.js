@@ -80,7 +80,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Weather Dashboard</h1>
+      <center><h1>Weather Dashboard</h1></center>
       <SearchBar onSearch={handleSearch} defaultValue={city} />
       <div style={containerStyle} className="content">
         <div style={weatherInfoStyle} className="weather-info">
