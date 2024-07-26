@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import WeatherInfo from './components/WeatherInfo';
@@ -8,10 +8,10 @@ import SquareContainer from './components/SquareContainer';
 
 const containerStyle = {
   display: 'flex',
-    height: '100vh', // Full viewport height
-    margin: 0, // Remove default margin
-    padding: 0, // Remove default padding
-    border: 'none', 
+  height: '100vh', // Full viewport height
+  margin: 0, // Remove default margin
+  padding: 0, // Remove default padding
+  border: 'none',
 };
 
 const weatherInfoStyle = {
@@ -23,18 +23,23 @@ const weatherInfoStyle = {
 const mapStyle = {
   flex: '1', // Takes up the remaining space in the container
   overflow: 'hidden', // Ensures no overflow
-  padding: 0,  // Optional padding
+  padding: 0, // Optional padding
 };
+
 const App = () => {
   const [city, setCity] = useState('Amravati');
   const [weather, setWeather] = useState(null);
-  const [mapCenter, setMapCenter] = useState([20.5937, 78.9629]); // Default coordinates
+  const [mapCenter, setMapCenter] = useState([20.9374, 77.7796]); // Default coordinates for Amravati
   const [zoom, setZoom] = useState(13); // Default zoom level
+
+  useEffect(() => {
+    handleSearch('Amravati');
+  }, []);
 
   const handleSearch = async (city) => {
     setCity(city);
 
-    const apiKey = 'pjKOAqIytv3qMxV3MvmmoC8I7o0HwEM6';
+    const apiKey = '5BdKp6TUdkvhZrCAu06NDANmP384uRQS';
     const locationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`;
 
     try {
@@ -63,7 +68,7 @@ const App = () => {
       const extractedWeather = {
         yesterday: weatherData[0], // First day's data
         today: weatherData[1], // Second day's data
-        tomorrow: weatherData[2] // Third day's data
+        tomorrow: weatherData[2], // Third day's data
       };
 
       console.log('Extracted Weather:', extractedWeather);
@@ -76,11 +81,11 @@ const App = () => {
   return (
     <div className="App">
       <h1>Weather Dashboard</h1>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} defaultValue={city} />
       <div style={containerStyle} className="content">
         <div style={weatherInfoStyle} className="weather-info">
           <WeatherInfo weather={weather} />
-        </div>  
+        </div>
         <div style={mapStyle} className="map">
           <Map center={mapCenter} zoom={zoom} />
         </div>
